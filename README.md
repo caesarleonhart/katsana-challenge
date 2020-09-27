@@ -8,7 +8,6 @@ Pre-requisite Apps : Docker
 - Run `docker-compose build` 
 - Run `docker-compose up -d` 
 - SSH into the project by using `docker exec -it app sh` command
-- Run `cd app`
 - Run `php artisan migrate`
 - Add `local-laravel.com` in your host file
 - Run `local-laravel.com:8333` in your browser
