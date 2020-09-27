@@ -1,0 +1,19 @@
+Here is the content of the code challenge for you.
+Build a simple website that allows an authenticated user to go through a loan application (doesn't have to contain too many fields, but at least "amount required" and "loan term").
+
+All the loans will be assumed to have a "weekly" repayment frequency. After the loan is approved the user must be able to submit the weekly loan
+repayments. It can be a simple repay button, which won't need to check if the dates are correct, but will just set the weekly amount to be repaid.
+
+User should be able to make a loan in MYR or any other currency by selecting the currency options. You will need to generate the currency from "List of Currencies by Name" using SOAP, you can use public API for this https://documenter.getpostman.com/view/8854915/Szf26WHn?version=latest#c9b8614d-2f25-4eb5-9b39-3715b0d04992
+
+—
+Notes:
+1. The chosen libs and tools may prove your experience using them.
+2. Remember to add meaningful tests to the project.
+3. You don't need to waste time doing blade views. We just need a good API.
+4. Source code is more important than design however it is still an important point.
+5. When your project is done, please share with us as public GitHub/Bitbucket/GitLab repo
+6. README.md should contain all the information that the reviewers need to run and use the app.
+7. Breakdown the requirement as User Story Format to explain what you did to help us see the thought process.
+
+Kindly email me your answers by this Friday or latest by this coming Monday.c

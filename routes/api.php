@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+Route::post('/login', 'App\Http\Controllers\API\AuthController@login');
+Route::get('/loans/all', 'App\Http\Controllers\API\LoanController@all');
+Route::get('/loan', 'App\Http\Controllers\API\LoanController@loan');
+Route::get('/currencies', 'App\Http\Controllers\API\LoanController@getCurrencies');
+Route::post('/apply', 'App\Http\Controllers\API\LoanController@applyLoan');

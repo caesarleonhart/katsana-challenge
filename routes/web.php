@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Auth::routes();
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/pay_loan/{loan_id}', 'App\Http\Controllers\FinanceController@pay');
+    Route::get('/loans', 'App\Http\Controllers\FinanceController@index')->name('loans');
+    Route::get('/loans/create', 'App\Http\Controllers\FinanceController@create');
+    Route::post('/loans', 'App\Http\Controllers\FinanceController@store');
+});
+
