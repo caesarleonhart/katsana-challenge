@@ -16,4 +16,4 @@ Notes:
 6. README.md should contain all the information that the reviewers need to run and use the app.
 7. Breakdown the requirement as User Story Format to explain what you did to help us see the thought process.
 
-Kindly email me your answers by this Friday or latest by this coming Monday.
+Kindly email me your answers by this Friday or latest by this coming Monday.c
