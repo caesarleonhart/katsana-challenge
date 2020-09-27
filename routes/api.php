@@ -15,16 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('open', 'App\Http\Controllers\API\FinanceController@open');
-Route::group([
-    'middleware' => 'api',
-    'prefix' => 'auth'
-
-], function ($router) {
-    Route::post('login', 'App\Http\Controllers\API\AuthController@login');
-    Route::post('register', 'App\Http\Controllers\API\AuthController@register');
-    Route::post('logout', 'App\Http\Controllers\API\AuthController@logout');
-    Route::post('refresh', 'App\Http\Controllers\API\AuthController@refresh');
-    Route::get('user-profile', 'App\Http\Controllers\API\AuthController@userProfile');
-    Route::get('closed', 'App\Http\Controllers\API\FinanceController@closed');
-});
+Route::post('/login', 'App\Http\Controllers\API\AuthController@login');
+Route::get('/loans/all', 'App\Http\Controllers\API\LoanController@all');
+Route::get('/loan', 'App\Http\Controllers\API\LoanController@loan');
+Route::get('/currencies', 'App\Http\Controllers\API\LoanController@getCurrencies');
+Route::post('/apply', 'App\Http\Controllers\API\LoanController@applyLoan');

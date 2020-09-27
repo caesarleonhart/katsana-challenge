@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Loan;
 use App\Models\Repayments;
+use App\Http\Controllers\API\LoanController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
-use SoapClient;
 use Illuminate\Support\Facades\Auth;
 
-class LoanController extends Controller
+class FinanceController extends Controller
 {
     public function index()
     {
@@ -20,9 +20,7 @@ class LoanController extends Controller
 
     public function create()
     {
-        $soap = new SoapClient('http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?wsdl');
-        $currencyList = $soap->__soapCall('ListOfCurrenciesByName', []);
-        $currencyList = $currencyList->ListOfCurrenciesByNameResult->tCurrency;
+        $currencyList = LoanController::getCurrencies()->getData()->currencyList;
 
         return View::make('loan.form', ['currencyList' => $currencyList]);
     }
@@ -30,7 +28,7 @@ class LoanController extends Controller
     public function store(Request $request)
     {
         $interest_rate = 0;
-        $term = $request->get('loan_term');
+        $term = $request->get('loanTerm');
 
         if ($term == 5) {
             $interest_rate = 3;
@@ -46,9 +44,9 @@ class LoanController extends Controller
 
         $loan = new Loan();
         $loan->ic = Auth::user()->ic;
-        $loan->loanAmount = $request->get('loan_amount');
-        $loan->loanTerm = $request->get('loan_term');
-        $loan->currency = $request->get('loan_currency');
+        $loan->loanAmount = $request->get('loanAmount');
+        $loan->loanTerm = $request->get('loanTerm');
+        $loan->currency = $request->get('currency');
         $loan->interest_rate = $interest_rate;
         $loan->save();
 

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Repayments extends Model
 {
-    protected $fillable = ['flag'];
+    protected $fillable = ['flag', 'loan_id'];
 }

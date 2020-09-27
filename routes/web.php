@@ -19,11 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/pay_loan/{loan_id}', 'App\Http\Controllers\LoanController@pay');
-    Route::get('/loans', 'App\Http\Controllers\LoanController@index');
-    Route::get('/loans/create', 'App\Http\Controllers\LoanController@create');
-    Route::post('/loans', 'App\Http\Controllers\LoanController@store');
+    Route::get('/pay_loan/{loan_id}', 'App\Http\Controllers\FinanceController@pay');
+    Route::get('/loans', 'App\Http\Controllers\FinanceController@index');
+    Route::get('/loans/create', 'App\Http\Controllers\FinanceController@create');
+    Route::post('/loans', 'App\Http\Controllers\FinanceController@store');
 });
 

@@ -40,4 +40,9 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public function loans()
+    {
+        return $this->hasMany('App\Models\Loan', 'ic', 'ic');
+    }
 }
